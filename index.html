@@ -24,7 +24,7 @@
     }
 
 header h1 {
-  font-family: 'Coiny', system-ui; /* Make Coiny active */
+  font-family: 'Coiny', system-ui; /* Use Coiny font */
   font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -33,8 +33,13 @@ header h1 {
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-  color: #a0c4ff; /* solid color so font is visible */
-  text-shadow: 2px 2px 0 #bdb2ff, 4px 4px 0 #6c63ff;
+
+  /* Gradient text from white to yellow */
+  background: linear-gradient(90deg, #ffffff, #fff700); 
+  -webkit-background-clip: text; /* clip the gradient to text */
+  -webkit-text-fill-color: transparent; /* make the text show gradient */
+
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.2); /* subtle depth/shadow */
 }
 
 
