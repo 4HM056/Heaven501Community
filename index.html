@@ -23,7 +23,7 @@
       padding: 3rem 1rem 2rem 1rem;
     }
 
-/* Heaven Community header with Doto font and animated blue-white shimmer */
+/* Heaven Community header with Doto font and extended blue-white shimmer */
 header h1 {
   font-family: "Doto", sans-serif;      /* Use the Doto font */
   font-optical-sizing: auto;
@@ -35,20 +35,32 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 30px;                             /* space between mascots and text */
   flex-wrap: wrap;
   font-size: 2.8rem;
   letter-spacing: 1px;
 
-  /* Animated gradient background */
-  background: linear-gradient(90deg, #00bfff, #0077be, #ffffff, #00bfff);
-  background-size: 300%;                    /* Makes the gradient longer for animation */
-  -webkit-background-clip: text;
+  /* Extended blue-white gradient for longer animation */
+  background: linear-gradient(
+    90deg,
+    #00bfff,
+    #0077be,
+    #ffffff,
+    #0077be,
+    #00bfff,
+    #0077be,
+    #ffffff,
+    #00bfff
+  );
+  background-size: 600%;                  /* stretched gradient for smoother shimmer */
+  -webkit-background-clip: text;         /* gradient only inside text */
   -webkit-text-fill-color: transparent;
-  animation: shimmer 5s infinite linear;    /* Apply the shimmer animation */
+
+  /* Animate the gradient horizontally */
+  animation: shimmer 8s infinite linear;
 }
 
-/* Keyframes for the shimmer movement */
+/* Keyframes for shimmer animation */
 @keyframes shimmer {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
