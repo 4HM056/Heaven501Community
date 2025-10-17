@@ -23,6 +23,28 @@
       padding: 3rem 1rem 2rem 1rem;
     }
 
+      /* 👇 Added new header layout */
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .mascot {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .mascot:hover {
+      transform: scale(1.05);
+    }
+
     header h1 {
       font-size: 2.5rem;
       font-weight: 600;
@@ -133,10 +155,14 @@
 </head>
 <body>
   <header>
-    <h1>Heaven Community Fan Art</h1>
-    <p>A collection of beautiful creations from our beloved community</p>
-  </header>
-
+  <div class="header-content">
+    <img src="https://i.im.ge/2025/10/17/n8YJv9.mascot-example.png" alt="Heaven Mascot" class="mascot" />
+    <div>
+      <h1>Heaven Community Fan Art</h1>
+      <p>A collection of beautiful creations from our beloved community</p>
+    </div>
+  </div>
+</header>
   <main>
     <!-- Example Fan Art -->
     <div class="art-card">
