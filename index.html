@@ -23,44 +23,38 @@
       padding: 3rem 1rem 2rem 1rem;
     }
 
-/* Nabla font applied directly to header h1 */
+/* Nabla font with subtle blue gradient for header h1 */
 header h1 {
   font-family: "Nabla", system-ui;       /* Use Nabla font */
   font-optical-sizing: auto;             /* adjusts optical sizing for legibility */
   font-weight: 400;                      /* normal weight */
   font-style: normal;                    /* normal style */
   font-variation-settings:               /* optional variable font tweaks */
-    "EDPT" 100,                          /* example axis values */
+    "EDPT" 100,
     "EHLT" 12;
+
   font-size: 2.5rem;                     /* adjust size for header */
-  color: #ffffff;                        /* white text */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;                             /* space between mascots and text */
+  gap: 30px;                             /* space between mascots and text */
   flex-wrap: wrap;
+
+  /* Subtle blue gradient with a touch of white */
+  background: linear-gradient(90deg, #e0f7ff, #00bfff);
+  -webkit-background-clip: text;         /* gradient only on text */
+  -webkit-text-fill-color: transparent;  /* show gradient on text */
+
+  /* Optional: tiny subtle glow */
+  text-shadow: 0 0 3px #ffffff, 0 0 5px #00bfff;
 }
+
 
 
     header p {
       font-size: 1rem;
       color: #aaa;
     }
-
-  header h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px; /* space between text and mascots */
-  flex-wrap: wrap;
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-
-  /* Subtle blue gradient with a touch of white */
-  background: linear-gradient(90deg, #e0f7ff, #00bfff);
-  -webkit-background-clip: text;   /* gradient only on text */
-  -webkit-text-fill-color: transparent; /* show gradient on text */
 
 .mascot {
   width: 50px; /* adjust size here */
