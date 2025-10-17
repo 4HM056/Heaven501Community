@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heaven Community Fan Art</title>
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Love+Light&family=Sedan+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Love+Light&family=Nabla&family=Sedan+SC&display=swap');
 
     body {
       margin: 0;
@@ -23,23 +23,26 @@
       padding: 3rem 1rem 2rem 1rem;
     }
 
+/* Nabla font applied directly to header h1 */
 header h1 {
-  font-family: "Love Light", cursive; /* Use Love Light font */
-  font-size: 2.5rem;
-  font-weight: 400; /* Love Light default weight */
-  letter-spacing: 1px;
+  font-family: "Nabla", system-ui;       /* Use Nabla font */
+  font-optical-sizing: auto;             /* adjusts optical sizing for legibility */
+  font-weight: 400;                      /* normal weight */
+  font-style: normal;                    /* normal style */
+  font-variation-settings:               /* optional variable font tweaks */
+    "EDPT" 100,                          /* example axis values */
+    "EHLT" 12;
+  font-size: 2.5rem;                     /* adjust size for header */
+  color: #ffffff;                        /* white text */
+  text-shadow:                            /* optional subtle glow */
+    0 0 5px #fff,
+    0 0 10px #00bfff,
+    0 0 15px #00bfff;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px; /* space between text and mascots */
+  gap: 12px;                             /* space between mascots and text */
   flex-wrap: wrap;
-
-  color: #ffffff; /* solid white text */
-  
-  /* Remove gradient stuff */
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
 }
 
 
