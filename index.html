@@ -37,6 +37,33 @@
       color: #aaa;
     }
 
+    header h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px; /* space between text and mascots */
+  flex-wrap: wrap;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ffcbf2, #a0c4ff, #bdb2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mascot {
+  width: 50px; /* adjust size here */
+  height: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.mascot:hover {
+  transform: scale(1.1);
+}
+
+
     main {
       width: 90%;
       max-width: 1100px;
@@ -133,13 +160,12 @@
 </head>
 <body>
 <header>
-  <div class="header-content">
-    <div>
-      <h1>Heaven Community Fan Art</h1>
-      <p>A collection of beautiful creations from our beloved community</p>
-    </div>
-    <img src="https://i.im.ge/2025/10/17/n8pNqK.Heve.png" alt="Heaven Mascot" class="mascot" />
-  </div>
+  <h1>
+    <img src="https://i.im.ge/2025/10/17/n8pNqK.Heve.png" alt="Heaven Mascot" class="mascot">
+    Heaven Community Fan Art
+    <img src="https://i.im.ge/2025/10/17/n8pNqK.Heve.png" alt="Heaven Mascot" class="mascot">
+  </h1>
+  <p>A collection of beautiful creations from our beloved community</p>
 </header>
 
   <main>
