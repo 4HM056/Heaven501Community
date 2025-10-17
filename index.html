@@ -23,30 +23,34 @@
       padding: 3rem 1rem 2rem 1rem;
     }
 
-/* Nabla font with subtle blue gradient for header h1 */
+/* Nabla font with blue gradient text and golden outline glow */
 header h1 {
   font-family: "Nabla", system-ui;       /* Use Nabla font */
-  font-optical-sizing: auto;             /* adjusts optical sizing for legibility */
-  font-weight: 400;                      /* normal weight */
-  font-style: normal;                    /* normal style */
-  font-variation-settings:               /* optional variable font tweaks */
+  font-optical-sizing: auto;             
+  font-weight: 400;                      
+  font-style: normal;                    
+  font-variation-settings:               
     "EDPT" 100,
     "EHLT" 12;
 
-  font-size: 2.5rem;                     /* adjust size for header */
+  font-size: 2.5rem;                     
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;                             /* space between mascots and text */
+  gap: 30px;                             
   flex-wrap: wrap;
 
-  /* Subtle blue gradient with a touch of white */
+  /* Subtle blue gradient text */
   background: linear-gradient(90deg, #e0f7ff, #00bfff);
-  -webkit-background-clip: text;         /* gradient only on text */
-  -webkit-text-fill-color: transparent;  /* show gradient on text */
+  -webkit-background-clip: text;         
+  -webkit-text-fill-color: transparent;  
 
-  /* Optional: tiny subtle glow */
-  text-shadow: 0 0 3px #ffffff, 0 0 5px #00bfff;
+  /* Golden outer glow outline */
+  text-shadow: 
+    0 0 3px #FFD700,  /* small close glow */
+    0 0 6px #FFD700,  /* medium glow */
+    0 0 10px #FFD700, /* larger halo */
+    0 0 15px #FFD700; /* outermost soft glow */
 }
 
 
