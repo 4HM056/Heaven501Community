@@ -47,7 +47,7 @@ header h1 {
       color: #aaa;
     }
 
-    header h1 {
+  header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,10 +56,11 @@ header h1 {
   font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, #ffcbf2, #a0c4ff, #bdb2ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
+  /* Subtle blue gradient with a touch of white */
+  background: linear-gradient(90deg, #e0f7ff, #00bfff);
+  -webkit-background-clip: text;   /* gradient only on text */
+  -webkit-text-fill-color: transparent; /* show gradient on text */
 
 .mascot {
   width: 50px; /* adjust size here */
