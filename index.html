@@ -74,6 +74,21 @@
       box-sizing: border-box;
     }
 
+    .page {
+  position: relative;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(100% - 320px - 14px); /* places line between columns */
+  width: 1px;
+  background: rgba(255,255,255,0.12);
+  pointer-events: none;
+}
+
     /* MAIN COLUMN */
     .main {
       display:flex;
