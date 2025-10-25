@@ -9,8 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== GLOBAL ===== */
-    :root{
+    :root {
       --bg-a: #0f0f0f;
       --bg-b: #1a1a1a;
       --card: #181818;
@@ -20,304 +19,282 @@
       --accent-end: #7a7aff;
     }
 
-    html,body{height:100%; margin:0;}
-    body{
-      font-family:'Poppins',sans-serif;
-      background: linear-gradient(135deg,var(--bg-a),var(--bg-b));
-      color:#f5f5f5;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      min-height:100vh;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    html, body {
+      height: 100%;
+      margin: 0;
     }
 
-    /* ===== HEADER ===== */
-    header{
-      text-align:center;
-      padding:3.5rem 1rem 1.5rem;
-      width:100%;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--bg-a), var(--bg-b));
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      line-height: 1.6;
     }
 
-    header h1{
-      font-family:"Doto",sans-serif;
-      font-weight:600;
-      font-size:2.6rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:24px;
-      flex-wrap:wrap;
-      background: linear-gradient(90deg,#00bfff,#0077be,#ffffff,#0077be,#00bfff);
-      background-size:600%;
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      width: 100%;
+    }
+
+    header h1 {
+      font-family: "Doto", sans-serif;
+      font-weight: 600;
+      font-size: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      background: linear-gradient(90deg, #00bfff, #0077be, #ffffff, #0077be, #00bfff);
+      background-size: 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       animation: shimmer 8s linear infinite;
-      margin:0;
+      margin: 0;
     }
-    @keyframes shimmer{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-    header p{margin:10px 0 0;color:#aaa;font-size:1rem}
 
-    .mascot{width:50px;height:50px;object-fit:cover;border-radius:10px;transition:transform .25s}
-    .mascot:hover{transform:scale(1.08)}
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
 
-    
+    header p {
+      color: #aaa;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
 
-    /* MAIN COLUMN */
+    .mascot {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform .25s;
+    }
+
+    .mascot:hover {
+      transform: scale(1.08);
+    }
+
+    /* PAGE LAYOUT */
+    .page {
+      width: 92%;
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: start;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* Divider line between main and sidebar */
+    aside::before {
+      content: "";
+      position: absolute;
+      left: calc(100% - 340px);
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.1) 0%,
+        rgba(255,255,255,0.04) 50%,
+        rgba(255,255,255,0.1) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* MAIN SECTION */
     .main {
-      dis/* ===== PAGE LAYOUT: 2-COLUMN ===== */
-.page {
-  width: 92%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  display: grid;
-  grid-template-columns: 1fr 320px; /* main column / sidebar */
-  gap: 28px;
-  align-items: start;
-  box-sizing: border-box;
-  position: relative; /* for divider alignment */
-}
-
-/* Sidebar styling with soft background and shadow */
-aside {
-  position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 14px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-self: start;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
-  min-height: 80px;
-  backdrop-filter: blur(6px);
-}
-
-/* Soft faded vertical divider between main and sidebar */
-aside::before {
-  content: "";
-  position: absolute;
-  left: -18px; /* controls distance between columns */
-  top: 6%;
-  bottom: 6%;
-  width: 1px;
-  border-radius: 1px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.09) 0%,
-    rgba(255, 255, 255, 0.03) 45%,
-    rgba(255, 255, 255, 0.03) 55%,
-    rgba(255, 255, 255, 0.09) 100%
-  );
-  pointer-events: none;
-}
-
-/* Responsive layout: stack columns on small screens */
-@media (max-width: 980px) {
-  .page {
-    grid-template-columns: 1fr;
-    padding: 0 12px;
-  }
-  aside {
-    order: 2;
-    width: auto;
-  }
-  .main {
-    order: 1;
-  }
-}q/* ===== PAGE LAYOUT: 2-COLUMN ===== */
-.page {
-  width: 92%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  display: grid;
-  grid-template-columns: 1fr 320px; /* main column / sidebar */
-  gap: 28px;
-  align-items: start;
-  box-sizing: border-box;
-  position: relative; /* for divider alignment */
-}
-
-/* Sidebar styling with soft background and shadow */
-aside {
-  position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 14px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-self: start;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
-  min-height: 80px;
-  backdrop-filter: blur(6px);
-}
-
-/* Soft faded vertical divider between main and sidebar */
-aside::before {
-  content: "";
-  position: absolute;
-  left: -18px; /* controls distance between columns */
-  top: 6%;
-  bottom: 6%;
-  width: 1px;
-  border-radius: 1px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.09) 0%,
-    rgba(255, 255, 255, 0.03) 45%,
-    rgba(255, 255, 255, 0.03) 55%,
-    rgba(255, 255, 255, 0.09) 100%
-  );
-  pointer-events: none;
-}
-
-/* Responsive layout: stack columns on small screens */
-@media (max-width: 980px) {
-  .page {
-    grid-template-columns: 1fr;
-    padding: 0 12px;
-  }
-  aside {
-    order: 2;
-    width: auto;
-  }
-  .main {
-    order: 1;
-  }
-}play:flex;
-      flex-direction:column;
-      gap: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
 
     .card {
       background: var(--card);
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
       transition: transform .28s ease, box-shadow .28s ease;
-      cursor:pointer;
+      cursor: pointer;
     }
-    .card:hover{ transform: translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,0.55) }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+    }
 
     .card-header {
-      background-size:cover;
-      background-position:center;
-      padding: 1.6rem 1.4rem;
-      text-align:center;
-      font-size:1.35rem;
-      font-weight:600;
-      text-shadow:0 2px 6px rgba(0,0,0,0.7);
-      transition: opacity .25s;
+      background-size: cover;
+      background-position: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
     }
 
-    .card-content{
-      max-height:0;
-      overflow:hidden;
+    .card-content {
+      max-height: 0;
+      overflow: hidden;
       background: var(--card-inner);
-      transition: max-height .56s cubic-bezier(.2,.8,.25,1), padding .36s;
-      padding: 0 1.4rem;
-    }
-    .card.expanded .card-content{
-      max-height: 380px;
-      padding: 1.2rem 1.4rem 1.6rem;
+      transition: max-height .56s ease, padding .36s;
+      padding: 0 1.5rem;
     }
 
-    .description{ color: var(--muted); font-size:.95rem; margin: .6rem 0; line-height:1.5 }
+    .card.expanded .card-content {
+      max-height: 500px;
+      padding: 1.5rem 1.5rem 2rem;
+    }
 
-    .previews{ display:flex; gap:10px; margin-bottom:1rem; }
-    .previews img{ width:32%; height:120px; object-fit:cover; border-radius:8px; display:block }
+    .description {
+      color: var(--muted);
+      font-size: .95rem;
+      margin: 0.8rem 0 1.2rem;
+    }
 
-    .view-btn{
-      display:inline-block;
-      background: linear-gradient(90deg,var(--accent-start),var(--accent-end));
-      color:#fff; padding:8px 14px; border-radius:9px; text-decoration:none;
+    .previews {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .previews img {
+      width: 32%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .view-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 600;
       transition: transform .18s, filter .18s;
-      font-weight:600;
     }
-    .view-btn:hover{ transform: translateY(-3px); filter:brightness(1.03) }
 
-    /* ===== SIDEBAR (anchored, not fixed) ===== */
-    aside{
-      background: rgba(255,255,255,0.03);
+    .view-btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.05);
+    }
+
+    /* SIDEBAR */
+    aside {
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 14px;
-      padding: 1.25rem;
-      display:flex;
-      flex-direction:column;
-      gap:1rem;
-      align-self:start; /* keep it at top of the grid column */
-      box-shadow: 0 6px 24px rgba(0,0,0,0.45);
-      min-height: 80px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(6px);
     }
 
-    /* NEWS */
-    .news h3{
-      margin:0 0 .6rem 0;
-      font-size:1.05rem;
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      padding-bottom:6px;
-      font-weight:600;
+    .news h3,
+    .quick h3 {
+      margin: 0 0 .6rem 0;
+      font-size: 1.05rem;
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+      font-weight: 600;
     }
 
-    .news-items{ display:flex; flex-direction:column; gap:.9rem }
-    .news-item{
-      background: rgba(255,255,255,0.02);
-      padding:.7rem;
-      border-radius:10px;
+    .news-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .news-item {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.8rem;
+      border-radius: 10px;
       transition: background .22s, transform .22s;
     }
-    .news-item:hover{ background: rgba(255,255,255,0.06); transform: translateY(-3px) }
-    .news-item h4{ margin:0 0 .25rem 0; color:#9cc9ff; font-size:.93rem }
-    .news-item p{ margin:0; color:#d6d6d6; font-size:.84rem; line-height:1.25 }
-    .news-item time{ display:block; margin-top:.45rem; color:#8a8a8a; font-size:.75rem }
 
-    /* QUICK ACTIONS */
-    .quick h3{
-      margin:0 0 .6rem 0;
-      font-size:1.05rem;
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      padding-bottom:6px;
-      font-weight:600;
+    .news-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-3px);
     }
-    .actions{ display:flex; flex-direction:column; gap:.7rem; margin-top:.2rem }
-    .actions a, .actions button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.6rem;
-      width:100%;
-      border:0;
-      padding:.6rem .9rem;
-      border-radius:10px;
-      background: linear-gradient(90deg,var(--accent-start),var(--accent-end));
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      cursor:pointer;
+
+    .news-item h4 {
+      margin: 0 0 .3rem 0;
+      color: #9cc9ff;
+      font-size: .93rem;
+    }
+
+    .news-item p {
+      margin: 0;
+      color: #d6d6d6;
+      font-size: .84rem;
+    }
+
+    .news-item time {
+      display: block;
+      margin-top: .45rem;
+      color: #8a8a8a;
+      font-size: .75rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+
+    .actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      border: 0;
+      padding: .7rem 1rem;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
       transition: transform .15s, filter .15s;
     }
-    .actions a:hover, .actions button:hover{ transform: translateY(-3px); filter:brightness(1.04) }
 
-    /* small subtle scrollbar */
-    aside::-webkit-scrollbar{ width:8px; height:8px }
-    aside::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.08); border-radius:6px }
-
-    /* ===== FOOTER ===== */
-    footer{ width:100%; text-align:center; color:#8a8a8a; margin:2.5rem 0 4rem; font-size:.9rem }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 980px){
-      .page{ grid-template-columns: 1fr; padding:0 12px }
-      aside{ order: 2; width:auto }
-      .main{ order: 1 }
+    .actions a:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.04);
     }
 
-    @media (max-width:480px){
-      header h1{ font-size:1.9rem; gap:12px }
+    footer {
+      width: 100%;
+      text-align: center;
+      color: #8a8a8a;
+      margin: 3rem 0 2rem;
+      font-size: .9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .page {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+        gap: 2rem;
+      }
+      aside::before {
+        display: none;
+      }
     }
 
   </style>
@@ -334,9 +311,7 @@ aside::before {
   </header>
 
   <div class="page">
-    <!-- MAIN COLUMN -->
     <div class="main">
-
       <!-- Heaven Creations -->
       <div class="card" onclick="toggleCard(this)">
         <div class="card-header" style="background-image:url('https://via.placeholder.com/900x220?text=Heaven+Creations');">
@@ -349,7 +324,7 @@ aside::before {
             <img src="https://via.placeholder.com/300x200" alt="">
             <img src="https://via.placeholder.com/300x200" alt="">
           </div>
-          <a href="#" class="view-btn">Notify me →</a>
+          <a href="#" class="view-btn">Notify Me →</a>
         </div>
       </div>
 
@@ -360,9 +335,7 @@ aside::before {
         </div>
         <div class="card-content">
           <p class="description">A special wall for all members — post, reply, and react using your profile. Be kind, be you.</p>
-
-          <!-- sample mini posts (text bubbles) -->
-          <div style="display:flex;flex-direction:column;gap:8px;margin:12px 0 16px;">
+          <div style="display:flex;flex-direction:column;gap:10px;margin:12px 0 16px;">
             <div style="background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;color:#e8e8e8">
               <strong>Toast:</strong> This community is wild — loving it! 🔥
             </div>
@@ -370,15 +343,14 @@ aside::before {
               <strong>Mino:</strong> Poster: new edit incoming later tonight ✨
             </div>
             <div style="background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;color:#e8e8e8">
-              <strong>@SkyKira:</strong> Dropped new fanart! go check it out 💫
+              <strong>@SkyKira:</strong> Dropped new fanart! Go check it out 💫
             </div>
           </div>
-
           <a href="#" class="view-btn">Visit Heaven Wall →</a>
         </div>
       </div>
 
-      <!-- Community Artworks -->
+      <!-- Artworks -->
       <div class="card" onclick="toggleCard(this)">
         <div class="card-header" style="background-image:url('https://via.placeholder.com/900x220?text=Community+Artworks');">
           Heaven Community Artworks
@@ -393,29 +365,25 @@ aside::before {
           <a href="community_art/index.html" class="view-btn">View All Artworks →</a>
         </div>
       </div>
-
     </div>
 
-    <!-- SIDEBAR (anchored to right column) -->
     <aside>
       <div class="news">
         <h3>Latest News</h3>
         <div class="news-items">
           <div class="news-item">
             <h4>🔥 Heaven Wall Launching Soon</h4>
-            <p>We’re adding interactive commenting and profiles — beta next week.</p>
+            <p>Interactive commenting and profiles — beta next week.</p>
             <time>Oct 22, 2025</time>
           </div>
-
           <div class="news-item">
             <h4>🎨 New Fanart Added</h4>
-            <p>Thanks to <strong>@Yasa</strong> for their new Mino x Toast piece!</p>
+            <p>Thanks to <strong>@Yasa</strong> for their Mino x Toast piece!</p>
             <time>Oct 18, 2025</time>
           </div>
-
           <div class="news-item">
             <h4>🛍️ Creations Section Preview</h4>
-            <p>Heaven-themed plushies & stickers are being prototyped by the mod team.</p>
+            <p>Plushies & stickers are being prototyped by the mod team.</p>
             <time>Oct 10, 2025</time>
           </div>
         </div>
@@ -424,10 +392,10 @@ aside::before {
       <div class="quick">
         <h3>Quick Access</h3>
         <div class="actions">
-          <a href="#" target="_blank" rel="noopener">Join us on Telegram</a>
-          <a href="#" target="_blank" rel="noopener">Follow us on Twitter</a>
-          <a href="#" target="_blank" rel="noopener">FAQ</a>
-          <a href="#" target="_blank" rel="noopener">Heaven History Timeline</a>
+          <a href="#">Join us on Telegram</a>
+          <a href="#">Follow us on Twitter</a>
+          <a href="#">FAQ</a>
+          <a href="#">Heaven History Timeline</a>
         </div>
       </div>
     </aside>
@@ -438,17 +406,9 @@ aside::before {
   </footer>
 
   <script>
-    // toggle expand/collapse
-    function toggleCard(card){
-      card.classList.toggle('expanded');
+    function toggleCard(card) {
+      card.classList.toggle("expanded");
     }
-
-    // Optional: close other cards when one opens (uncomment if desired)
-    // function toggleCard(card){
-    //   const all = document.querySelectorAll('.card');
-    //   all.forEach(c => { if(c!==card) c.classList.remove('expanded') });
-    //   card.classList.toggle('expanded');
-    // }
   </script>
 </body>
 </html>
