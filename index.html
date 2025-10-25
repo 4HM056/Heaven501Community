@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Heaven Community Website</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heaven Community Fan Art</title>
   <style>
-    :root {
-      --bg-a: #0f0f0f;
-      --bg-b: #1a1a1a;
-      --card: #181818;
-      --card-inner: #121225;
-      --muted: #bbb;
-      --accent-start: #5f5fff;
-      --accent-end: #7a7aff;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Doto:wght@100..900&family=Love+Light&family=Nabla&family=Sedan+SC&display=swap');
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, var(--bg-a), var(--bg-b));
-      color: #f5f5f5;
       margin: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    /* ===== HEADER ===== */
     header {
       text-align: center;
-      padding: 3.5rem 1rem 1.5rem;
+      padding: 3rem 1rem 2rem 1rem;
     }
 
+    /* Heaven Community header with Doto font and extended blue-white shimmer */
     header h1 {
       font-family: "Doto", sans-serif;
+      font-optical-sizing: auto;
       font-weight: 600;
-      font-size: 2.6rem;
+      font-style: normal;
+      font-variation-settings: "ROND" 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 30px;
       flex-wrap: wrap;
-      background: linear-gradient(90deg, #00bfff, #0077be, #ffffff, #0077be, #00bfff);
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      background: linear-gradient(
+        90deg,
+        #00bfff,
+        #0077be,
+        #ffffff,
+        #0077be,
+        #00bfff,
+        #0077be,
+        #ffffff,
+        #00bfff
+      );
       background-size: 600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmer 8s linear infinite;
-      margin: 0;
+      animation: shimmer 8s infinite linear;
     }
-    @keyframes shimmer { 0% { background-position: 0% 50% } 100% { background-position: 100% 50% } }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
 
     header p {
-      color: #aaa;
-      margin-top: 10px;
       font-size: 1rem;
+      color: #aaa;
     }
 
     .mascot {
@@ -63,323 +69,228 @@
       height: 50px;
       object-fit: cover;
       border-radius: 10px;
-      transition: transform .25s;
+      transition: transform 0.3s ease;
     }
-    .mascot:hover { transform: scale(1.08); }
 
-    /* ===== LAYOUT ===== */
-    .page {
+    .mascot:hover {
+      transform: scale(1.1);
+    }
+
+    main {
+      width: 90%;
+      max-width: 1100px;
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 32px;
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .art-card {
+      background: #181818;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
     }
 
-    .page::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: calc(100% - 320px - 16px);
-      width: 1px;
-      background: rgba(255,255,255,0.1);
-      pointer-events: none;
+    .art-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 30px rgba(255, 255, 255, 0.1);
     }
 
-    /* ===== MAIN CONTENT ===== */
-    .main {
+    .art-image {
+      position: relative;
+    }
+
+    /* ✅ Unified image size for all artwork, including “Heaven Wall” */
+    main img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .date-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      color: #f5f5f5;
+    }
+
+    .art-info {
+      padding: 1rem;
+    }
+
+    .artist-links {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
     }
 
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-      transition: transform .28s ease, box-shadow .28s ease;
-      cursor: pointer;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55); }
-
-    .card-header {
-      background-size: cover;
-      background-position: center;
-      padding: 1.6rem 1.4rem;
-      text-align: center;
-      font-size: 1.35rem;
-      font-weight: 600;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-    }
-
-    /* Heaven Wall with image behind text */
-    .heaven-wall-header {
-      position: relative;
-      height: 220px;
-      background-image: url("https://i.im.ge/2025/10/17/n84oof.1760716452133.png");
-      background-size: cover;
-      background-position: center;
+    .artist-link {
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      gap: 0.4rem;
     }
 
-    .heaven-wall-header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 0;
-      transition: background 0.3s ease;
+    .artist-link img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      opacity: 0.9;
     }
 
-    .heaven-wall-header:hover::before {
-      background: rgba(0,0,0,0.6);
-    }
-
-    .overlay-text {
-      position: relative;
-      z-index: 1;
-      font-size: 1.6rem;
-      font-weight: 600;
-      background: linear-gradient(90deg, #7a7aff, #5f5fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-    }
-
-    .card-content {
-      max-height: 0;
-      overflow: hidden;
-      background: var(--card-inner);
-      transition: max-height .56s ease, padding .36s;
-      padding: 0 1.4rem;
-    }
-    .card.expanded .card-content {
-      max-height: 400px;
-      padding: 1.2rem 1.4rem 1.6rem;
-    }
-
-    .description { color: var(--muted); font-size: .95rem; margin: .6rem 0; line-height: 1.5; }
-
-    .previews {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 1rem;
-    }
-    .previews img {
-      width: 32%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .view-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 9px;
+    .artist-link a {
       text-decoration: none;
-      font-weight: 600;
-      transition: transform .18s, filter .18s;
-    }
-    .view-btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
-
-    /* ===== SIDEBAR ===== */
-    aside {
-      background: rgba(255,255,255,0.03);
-      border-radius: 14px;
-      padding: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.45);
-      backdrop-filter: blur(6px);
+      color: #bdb2ff;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
     }
 
-    .news h3, .quick h3 {
-      margin: 0 0 .6rem 0;
-      font-size: 1.05rem;
-      color: #fff;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 6px;
+    .artist-link a:hover {
+      color: #ffcbf2;
     }
 
-    .news-items {
-      display: flex;
-      flex-direction: column;
-      gap: .9rem;
-    }
-
-    .news-item {
-      background: rgba(255,255,255,0.02);
-      padding: .7rem;
-      border-radius: 10px;
-      transition: background .22s, transform .22s;
-    }
-
-    .news-item:hover {
-      background: rgba(255,255,255,0.06);
-      transform: translateY(-3px);
-    }
-
-    .news-item h4 { margin: 0 0 .25rem 0; color: #9cc9ff; font-size: .93rem; }
-    .news-item p { margin: 0; color: #d6d6d6; font-size: .84rem; }
-    .news-item time { display: block; margin-top: .4rem; color: #8a8a8a; font-size: .75rem; }
-
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: .7rem;
-    }
-
-    .actions a {
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-      padding: .6rem .9rem;
-      border-radius: 10px;
-      font-weight: 600;
-      text-align: center;
-      transition: transform .15s, filter .15s;
-    }
-
-    .actions a:hover {
-      transform: translateY(-3px);
-      filter: brightness(1.05);
+    .art-info p {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin: 0;
     }
 
     footer {
-      width: 100%;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #777;
       text-align: center;
-      color: #8a8a8a;
-      margin: 2.5rem 0 3rem;
-      font-size: .9rem;
     }
 
-    @media (max-width: 980px) {
-      .page {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    @media (max-width: 600px) {
+      main img {
+        height: 200px;
       }
-      .page::before { display: none; }
     }
 
+    @media (min-width: 1200px) {
+      main img {
+        height: 300px;
+      }
+    }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <h1>
-      <img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" class="mascot" alt="Heaven Mascot">
-      Heaven Community Website
-      <img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" class="mascot" alt="Heaven Mascot">
+      <img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Mascot (Heve)" class="mascot">
+      Artworks by Heaven Community
+      <img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Mascot (Heve)" class="mascot">
     </h1>
-    <p>Welcome to the official Heaven community hub — explore, connect, and create.</p>
+    <p>A collection of beautiful creations from our beloved community</p>
   </header>
 
-  <div class="page">
-    <div class="main">
-      <!-- Heaven Creations -->
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-header" style="background-image:url('https://via.placeholder.com/900x220?text=Heaven+Creations');">
-          Heaven Creations (Coming Soon...)
-        </div>
-        <div class="card-content">
-          <p class="description">Exclusive Heaven-themed physical creations made by moderators and members. Plushies, art, and more coming soon!</p>
-          <div class="previews">
-            <img src="https://via.placeholder.com/300x200" alt="">
-            <img src="https://via.placeholder.com/300x200" alt="">
-            <img src="https://via.placeholder.com/300x200" alt="">
-          </div>
-          <a href="#" class="view-btn">Notify me →</a>
-        </div>
+  <main>
+
+    <!-- Fan Art 1 -->
+    <div class="art-card">
+      <div class="art-image">
+        <img src="https://i.im.ge/2025/10/25/nKAtDM.photo-2025-10-25-01-34-15.jpeg" alt="Artwork by Fatima" />
+        <div class="date-tag">October 24, 2025</div>
       </div>
 
-      <!-- Heaven Wall -->
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-header heaven-wall-header">
-          <div class="overlay-text">The Heaven Wall</div>
-        </div>
-        <div class="card-content">
-          <p class="description">A special wall for all members — post, reply, and react using your profile.</p>
-          <div style="display:flex;flex-direction:column;gap:8px;margin:12px 0 16px;">
-            <div style="background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;">
-              <strong>Toast:</strong> This community is wild — loving it! 🔥
-            </div>
-            <div style="background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;">
-              <strong>Mino:</strong> New edit dropping later tonight ✨
-            </div>
+      <div class="art-info">
+        <div class="artist-links">
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/16/n8ULKK.Instagram-icon-png.webp" alt="Instagram" />
+            <a href="https://instagram.com/77ArtistName" target="_blank">@ArtistName</a>
           </div>
-          <a href="#" class="view-btn">Visit Heaven Wall →</a>
-        </div>
-      </div>
-
-      <!-- Community Artworks -->
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-header" style="background-image:url('https://via.placeholder.com/900x220?text=Community+Artworks');">
-          Heaven Community Artworks
-        </div>
-        <div class="card-content">
-          <p class="description">Discover art made by Heaven’s members. Submit your fanart to get featured!</p>
-          <div class="previews">
-            <img src="https://via.placeholder.com/300x200" alt="">
-            <img src="https://via.placeholder.com/300x200" alt="">
-            <img src="https://via.placeholder.com/300x200" alt="">
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8RdMG.Picsart-25-10-16-23-49-41-469.png" alt="Telegram" />
+            <a href="https://t.me/77ArtistName" target="_blank">@ArtistName</a>
           </div>
-          <a href="community_art/index.html" class="view-btn">View All Artworks →</a>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8WRGX.Picsart-25-10-17-01-36-19-571.png" alt="Twitter" />
+            <a href="https://x.com/77ArtistName" target="_blank">@ArtistName</a>
+          </div>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8WOyM.Picsart-25-10-17-01-19-47-085.png" alt="Discord" />
+            <a href="https://x.com/77ArtistName" target="_blank">@ArtistName</a>
+          </div>
         </div>
+        <p>"Artwork featuring a photographed paperwork of the iconic character Lain from the previous Heaven’s logo, seated on an old TV displaying a Lain-style aesthetic image representing Heaven."</p>
       </div>
     </div>
 
-    <aside>
-      <div class="news">
-        <h3>Latest News</h3>
-        <div class="news-items">
-          <div class="news-item">
-            <h4>🔥 Heaven Wall Launching Soon</h4>
-            <p>Interactive profiles and comments coming next week.</p>
-            <time>Oct 22, 2025</time>
-          </div>
-          <div class="news-item">
-            <h4>🎨 New Fanart Added</h4>
-            <p>Thanks to <strong>@Yasa</strong> for the new Heaven piece!</p>
-            <time>Oct 18, 2025</time>
-          </div>
-          <div class="news-item">
-            <h4>🛍️ Creations Preview</h4>
-            <p>Heaven plushies and stickers being prototyped!</p>
-            <time>Oct 10, 2025</time>
-          </div>
-        </div>
+    <!-- Fan Art 2 -->
+    <div class="art-card">
+      <div class="art-image">
+        <img src="https://i.im.ge/2025/10/25/nKAx6C.photo-2025-10-25-01-44-14.jpeg" alt="Fan Art by Yasa" />
+        <div class="date-tag">August 26, 2024</div>
       </div>
 
-      <div class="quick">
-        <h3>Quick Access</h3>
-        <div class="actions">
-          <a href="#">Join us on Telegram</a>
-          <a href="#">Follow us on Twitter</a>
-          <a href="#">FAQ</a>
-          <a href="#">Heaven History Timeline</a>
+      <div class="art-info">
+        <div class="artist-links">
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/16/n8ULKK.Instagram-icon-png.webp" alt="Instagram" />
+            <a href="https://instagram.com/77AnotherArtist" target="_blank">@AnotherArtist</a>
+          </div>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8RdMG.Picsart-25-10-16-23-49-41-469.png" alt="Telegram" />
+            <a href="https://t.me/77AnotherArtist" target="_blank">@AnotherArtist</a>
+          </div>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8WRGX.Picsart-25-10-17-01-36-19-571.png" alt="Twitter" />
+            <a href="https://x.com/77AnotherArtist" target="_blank">@AnotherArtist</a>
+          </div>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8WOyM.Picsart-25-10-17-01-19-47-085.png" alt="Discord" />
+            <a href="https://x.com/77AnotherArtist" target="_blank">@AnotherArtist</a>
+          </div>
         </div>
+        <p>"Traditional fan art drawn on paper by Yasa, featuring Toast on the left, Yasa’s own OC in the center, and Mino on the right. The artwork is uncolored and rendered in a natural, hand-drawn style."</p>
       </div>
-    </aside>
-  </div>
+    </div>
+
+    <!-- Fan Art 3 -->
+    <div class="art-card">
+      <div class="art-image">
+        <img src="https://i.im.ge/2025/10/17/n88rXK.Picsart-25-10-16-21-23-50-582.jpeg" alt="Fan Art by Yasa" />
+        <div class="date-tag">August 23, 2024</div>
+      </div>
+
+      <div class="art-info">
+        <div class="artist-links">
+
+<div class="artist-link">
+            <img src="https://i.im.ge/2025/10/16/n8ULKK.Instagram-icon-png.webp" alt="Instagram" />
+            <a href="https://instagram.com/77ArtistName" target="_blank">@ArtistName</a>
+          </div>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8RdMG.Picsart-25-10-16-23-49-41-469.png" alt="Telegram" />
+            <a href="https://t.me/77ArtistName" target="_blank">@ArtistName</a>
+          </div>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8WRGX.Picsart-25-10-17-01-36-19-571.png" alt="Twitter" />
+            <a href="https://x.com/77ArtistName" target="_blank">@ArtistName</a>
+          </div>
+          <div class="artist-link">
+            <img src="https://i.im.ge/2025/10/17/n8WOyM.Picsart-25-10-17-01-19-47-085.png" alt="Discord" />
+            <a href="https://x.com/77ArtistName" target="_blank">@ArtistName</a>
+          </div>
+        </div>
+        <p>"Fan art featuring Mino (owner’s OC) and Toast (main admin’s OC) from the Heaven Telegram community."</p>
+      </div>
+    </div>
+
+  </main>
 
   <footer>
-    Heaven Community © 2025 — Curated by FancyToast551
+    <p>Heaven Community © 2025 | Curated by FancyToast551</p>
   </footer>
-
-  <script>
-    function toggleCard(card) {
-      card.classList.toggle('expanded');
-    }
-  </script>
 </body>
 </html>
