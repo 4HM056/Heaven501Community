@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heaven Community Prototype</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-image: url('https://i.im.ge/2025/10/27/nVmKr8.IMG-20251027-005416-946.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    /* Dock Bar */
+    .dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      z-index: 100;
+    }
+    .dock button {
+      background: transparent;
+      border: none;
+      margin: 0 15px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .dock button:hover {
+      transform: scale(1.2);
+    }
+    .dock img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* Heve Mascot */
+    #heve-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+    }
+    #heve-btn {
+      width: 80px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    #heve-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Chat Box */
+    #chat-box {
+      display: none;
+      position: absolute;
+      bottom: 100px;
+      right: 0;
+      width: 300px;
+      max-height: 400px;
+      background: rgba(0,0,0,0.85);
+      border: 2px solid #00ffff;
+      border-radius: 12px;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    #chat-box h3 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: #00ffff;
+    }
+    .chat-message {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+    .chat-message span {
+      color: #0ff;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    #chat-input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Share Tech Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bottom Dock -->
+  <div class="dock">
+    <button><img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Creations"></button>
+    <button><img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Wall"></button>
+    <button><img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Artworks"></button>
+  </div>
+
+  <!-- Heve Mascot -->
+  <div id="heve-chat">
+    <img src="https://i.im.ge/2025/10/27/nVmf8M.1761515811593.png" id="heve-btn" alt="Heve Mascot">
+    <div id="chat-box">
+      <h3>Heaven Chat</h3>
+      <div class="chat-message"><span>Skyline:</span> Hello everyone!</div>
+      <div class="chat-message"><span>Luna:</span> Loving the new art updates.</div>
+      <div class="chat-message"><span>Echo:</span> Anyone tried the Heaven Creations items?</div>
+      <input type="text" id="chat-input" placeholder="Type a message..." disabled>
+    </div>
+  </div>
+
+  <script>
+    const heveBtn = document.getElementById('heve-btn');
+    const chatBox = document.getElementById('chat-box');
+
+    heveBtn.addEventListener('click', () => {
+      chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+
+</body>
+</html>
