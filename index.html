@@ -19,6 +19,39 @@
       color: #fff;
     }
 
+    /* Top-left vertical icons */
+    .vertical-icons {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      z-index: 150;
+    }
+    .vertical-icons button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .vertical-icons img {
+      width: 60px;
+      height: 60px;
+      transition: transform 0.2s;
+    }
+    .vertical-icons img:hover {
+      transform: scale(1.2);
+    }
+    .vertical-icons span {
+      font-size: 14px;
+      color: #00ffff;
+      text-align: center;
+    }
+
     /* Dock Bar */
     .dock {
       position: fixed;
@@ -56,7 +89,7 @@
       z-index: 200;
     }
     #heve-btn {
-      width: 80px;
+      width: 120px; /* bigger mascot */
       cursor: pointer;
       transition: transform 0.2s;
     }
@@ -68,7 +101,7 @@
     #chat-box {
       display: none;
       position: absolute;
-      bottom: 100px;
+      bottom: 140px;
       right: 0;
       width: 300px;
       max-height: 400px;
@@ -105,6 +138,22 @@
   </style>
 </head>
 <body>
+
+  <!-- Top-left vertical icons -->
+  <div class="vertical-icons">
+    <button>
+      <img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Creations">
+      <span>Heaven Creations</span>
+    </button>
+    <button>
+      <img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Wall">
+      <span>Heaven Wall</span>
+    </button>
+    <button>
+      <img src="https://i.im.ge/2025/10/17/n84oof.1760716452133.png" alt="Heaven Artworks">
+      <span>Heaven Artworks</span>
+    </button>
+  </div>
 
   <!-- Bottom Dock -->
   <div class="dock">
